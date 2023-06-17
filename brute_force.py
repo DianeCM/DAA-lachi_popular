@@ -21,7 +21,7 @@ def solutions_search(reversed:list[list[int]]):
         visited = [False for i in reversed]
         solution = []
         dfs_visited(i, reversed, visited, solution)
-        solutions_set.append(set(solution))
+        if set(solution) not in solutions_set: solutions_set.append(set(solution))
     return solutions_set
 
 def dfs_visited(i:int, reversed:list[list[int]], visited:list[bool], solution:list[int]):
