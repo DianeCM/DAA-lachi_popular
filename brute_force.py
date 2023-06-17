@@ -1,7 +1,6 @@
 def solution(bad_opinions:list[list[int]], k:int):
     rvsd = create_reversed(bad_opinions)
     solutions_set = solutions_search(rvsd)
-    print(solutions_set)
     valid_solutions = []
     for sols in solutions_set:
         if len(sols) == k: return sols
@@ -36,8 +35,8 @@ def solve(solutions:list[set[int]], k:int):
     return solve_backtrack(solutions, k, 0, set(), set())
 
 def solve_backtrack(solutions:list[set[int]], k:int, index:int, solution:set, max_temp:set):
-    if index >= len(solutions): return max_temp
     if len(solution) == k: return solution
+    if index >= len(solutions): return solution
     
     inter = solution.intersection(solutions[index])
     curr = solution.union(solutions[index])
